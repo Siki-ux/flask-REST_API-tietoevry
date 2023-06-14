@@ -83,12 +83,23 @@ Example Response:
 }
 ```
 ## Flask CLI Commands
-db_drop  Drops the database.
-db_init  Initializes the database.
-db_seed  Seeds the database.
-routes   Show the routes for the app.
-run      Run a development server.
-shell    Run a shell in the app context.
+Drops the database.
+```bash 
+flask -A api db_drop
+```
+Initializes the database.
+```bash 
+flask -A api db_init
+```
+Seeds the database.
+```bash 
+flask -A api db_seed
+```
+Show the routes for the app.
+```bash 
+flask -A api routes
+```
+
 ## Installation
 
 1. Clone the repository:
