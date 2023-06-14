@@ -1,5 +1,8 @@
-import sqlite3 as sql
+# Script containing routes methods
+# Author: Jakub Sikula
 
+# Import the necessary modules
+import sqlite3 as sql
 from flask import abort
 
 

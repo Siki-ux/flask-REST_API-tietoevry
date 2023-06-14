@@ -1,7 +1,11 @@
-import sqlite3 as sql
+# Script containing routes methods
+# Author: Jakub Sikula
 
+# Import the necessary modules
+import sqlite3 as sql
 from flask import request, jsonify, abort, Flask
 
+# Import modules from api
 from api.utils import get_one_line
 
 
@@ -17,6 +21,8 @@ def register_routes(app: Flask):
             str: JSON string representing the response message.
 
         Raises:
+            ValueError: If there is wrong type of value
+            KeyError: If there is a missing key in the request JSON data.
             Exception: If an exception occurs during the processing of the request.
         """
         try:
@@ -49,8 +55,10 @@ def register_routes(app: Flask):
                         msg = [dict(ix) for ix in rows]
 
         except ValueError as e:
+            # Error occurs wiith wrong value type
             abort(400, e)
         except KeyError:
+            # Error occurs during gaining of JSON data
             abort(400, 'Missing key in the request JSON data')
         except sql.Error:
             # Error occurs during the processing of the request
@@ -70,6 +78,7 @@ def register_routes(app: Flask):
             str: JSON string representing the response message.
 
         Raises:
+            ValueError: If there is wrong type of value
             KeyError: If there is a missing key in the request JSON data.
             Exception: If an exception occurs during the processing of the request.
         """
@@ -95,8 +104,10 @@ def register_routes(app: Flask):
                     msg = get_one_line(conn, id, None)
 
         except ValueError as e:
+            # Error occurs wiith wrong value type
             abort(400, e)
         except KeyError:
+            # Error occurs during gaining of JSON data
             abort(400, 'Missing key in the request JSON data')
         except sql.Error:
             # Error occurs during the processing of the request
