@@ -37,8 +37,7 @@ Example Response:
     "title": "Movie 2",
     "description": "Description of Movie 2",
     "release_year": 2022
-  },
-  ...
+  }
 ]
 ```
 ### GET /movies/{int:id}
@@ -59,8 +58,7 @@ Example Response:
 ### POST /movies
 Adds a new movie to the database. The movie information should be provided in the request body as a JSON object.<br>
 ```bash
-curl -X POST http://127.0.0.1:5000/movies -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic talking cars and other vehicles,...", "release_year":"2010"}'
-```
+curl -X POST http://127.0.0.1:5000/movies -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic 
 ```
 Example Response:
 ```json
