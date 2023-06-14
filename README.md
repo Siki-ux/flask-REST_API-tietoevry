@@ -13,8 +13,8 @@ this repository serves to present the development and understanding of REST API 
 
 ## Requirements
 
-- Python 3.x
-- Flask
+- Python 3.11.4
+- Flask 2.3.2
 - SQLite3
 
 ## API Endpoints
@@ -58,7 +58,7 @@ Example Response:
 ### POST /movies
 Adds a new movie to the database. The movie information should be provided in the request body as a JSON object.<br>
 ```bash
-curl -X POST http://127.0.0.1:5000/movies -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic 
+curl -X POST http://127.0.0.1:5000/movies -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic talking cars and other vehicles,...", "release_year":2010}'
 ```
 Example Response:
 ```json
@@ -72,7 +72,7 @@ Example Response:
 ### PUT /movies{id}
 Updates the information of a specific movie identified by the {id} parameter. The updated movie information should be provided in the request body as a JSON object<br>
 ```bash
-curl -X PUT http://127.0.0.1:5000/movies/1 -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic talking cars and other vehicles,...", "release_year":"2011"}'
+curl -X PUT http://127.0.0.1:5000/movies/3 -H 'Content-Type: application/json' -d '{"title": "The cars", "description":"Set in a world populated entirely by anthropomorphic talking cars and other vehicles,...", "release_year":2011}'
 ```
 Example Response:
 ```json
@@ -82,33 +82,38 @@ Example Response:
   "release_year": 2011
 }
 ```
-
-### GET /movies/init
-Initialize table movies in database and fill it with some data. Drops existing table.
-```bash
-curl -X GET http://127.0.0.1:5000/movies/init
-```
-
+## Flask CLI Commands
+db_drop  Drops the database.
+db_init  Initializes the database.
+db_seed  Seeds the database.
+routes   Show the routes for the app.
+run      Run a development server.
+shell    Run a shell in the app context.
 ## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/movie-database-api.git
+git clone https://github.com/Siki-ux/flask-REST_API-tietoevry.git
 ```
 
 2. Run script:
 
 ```bash
-python3 api.py
+python3 main.py
 ```
 
 3. Initialize the database:
 ```bash
-curl -X GET http://127.0.0.1:5000/movies/init
+flask -A api db_init
 ```
 
-4. Enjoy
+4. Seed the database (Optional)
+```bash
+flask -A api db_seed
+```
+
+5. Enjoy
 
 
 
