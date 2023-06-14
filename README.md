@@ -102,6 +102,18 @@ flask -A api routes
 
 ## Installation
 
+### Docker
+To install using *Dockerfile*. You need to build an image first using command:
+```bash
+sudo docker build -t movie-api:latest .
+```
+Then you can run this image in container using command:
+```bash
+sudo docker run -p 5000:5000 movie-api
+```
+
+### Manual
+
 1. Clone the repository:
 
 ```bash
