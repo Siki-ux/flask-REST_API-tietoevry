@@ -101,19 +101,29 @@ flask -A api routes
 ```
 
 ## Installation
-
+Instalation is possible with two basic methods.
 ### Docker
-To install using *Dockerfile*. You need to build an image first using command:
+Docker engine is required for this variant.
+1. To install using *Dockerfile*. You need to build an image first using command in root of this repository:
 ```bash
 sudo docker build -t movie-api:latest .
 ```
-Then you can run this image in container using command:
+2. Then you can run this image in container using command:
 ```bash
 sudo docker run -p 5000:5000 movie-api
 ```
+3. Now when API is running you may want to initialize the database. You need to open new terminal and run this flask command:
+```bash
+flask -A api db_init
+```
+4. To populate database use command (Optional):
+ ```bash
+flask -A api db_seed
+```
+5. Enjoy
 
 ### Manual
-
+All requierments are necessary for this variant.
 1. Clone the repository:
 
 ```bash
